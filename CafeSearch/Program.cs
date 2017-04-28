@@ -14,7 +14,7 @@ namespace CafeSearch
             Cafe cafe1 = new Cafe()
             {
                 Name = "Tumanyan Shaurma",
-                Adress = "Tumanyan Street",
+                Address = "Tumanyan Street",
                 OpenHour = 10,
                 CloseHour = 24,
                 Rating = 4,
@@ -24,7 +24,7 @@ namespace CafeSearch
             Cafe cafe2 = new Cafe()
             {
                 Name = "Loft",
-                Adress = "Moskovyan Street",
+                Address = "Moskovyan Street",
                 OpenHour = 0,
                 CloseHour = 24,
                 Rating = 4.7f,
@@ -34,7 +34,7 @@ namespace CafeSearch
             Cafe cafe3 = new Cafe()
             {
                 Name = "Jose",
-                Adress = "Khanjyan Street",
+                Address = "Khanjyan Street",
                 OpenHour = 11,
                 CloseHour = 24,
                 Rating = 4.3f,
@@ -44,7 +44,7 @@ namespace CafeSearch
             Cafe cafe4 = new Cafe()
             {
                 Name = "Tashir",
-                Adress = "Teryan Street",
+                Address = "Teryan Street",
                 OpenHour = 11,
                 CloseHour = 24,
                 Rating = 4.4f,
@@ -56,7 +56,15 @@ namespace CafeSearch
             cafes.AddCafe(cafe3);
             cafes.AddCafe(cafe4);
 
-            Console.WriteLine(cafes.cafes[0]); 
+            Console.WriteLine("Thanks for using our program \n");
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("What do you want to know? \n");
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("You can find:");
+            Console.WriteLine("1. Cafes by name, 2. Cafes by address");
+            Console.WriteLine("3. Now open cafes, 4. Cafes which have wifi");
+            Console.WriteLine("5. All cafes on map");
         }
+
     }
 }

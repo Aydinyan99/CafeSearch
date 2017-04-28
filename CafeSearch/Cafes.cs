@@ -19,15 +19,17 @@ namespace CafeSearch
             foreach(Cafe var in cafes)
             {
                 if (var.Name == name)
+                {
                     return var;
+                }
             }
             return null;
         }
-        public Cafe GetCafeByAdress(string adress)
+        public Cafe GetCafeByAddress(string adress)
         {
             foreach (Cafe var in cafes)
             {
-                if (var.Name == adress)
+                if (var.Address == adress)
                     return var;
             }
             return null;

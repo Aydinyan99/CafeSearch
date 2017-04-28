@@ -8,8 +8,8 @@ namespace CafeSearch
 {
     class Cafe
     {
-        public string  Name { set; get; }
-        public string Adress { set; get; }
+        public string Name { set; get; }
+        public string Address { set; get; }
         public int OpenHour { set; get; }
         public int CloseHour { set; get; }
         public float Rating { set; get; }
@@ -18,8 +18,12 @@ namespace CafeSearch
 
         public override string ToString()
         {
-
-            return "Name: " + Name + "\n" + "Adress: " + Adress;
+            string wifi;
+            if (WifiAvailability)
+                wifi = "Available";
+            else
+                wifi = "Unavailable";
+            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Working Hours: " + OpenHour + ":00-" + CloseHour + ":00" + "\n" + "Rating:" + new string('*', (int)(Rating)) + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi;
         }
 
     }
