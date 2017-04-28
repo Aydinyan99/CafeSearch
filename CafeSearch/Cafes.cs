@@ -14,14 +14,12 @@ namespace CafeSearch
         {
             cafes.Add(cafe);
         } 
-        public Cafe getCafeByName(string name)
+        public Cafe GetCafeByName(string name)
         {
             foreach(Cafe var in cafes)
             {
                 if (var.Name == name)
-                {
                     return var;
-                }
             }
             return null;
         }

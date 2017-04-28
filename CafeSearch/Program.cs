@@ -56,14 +56,41 @@ namespace CafeSearch
             cafes.AddCafe(cafe3);
             cafes.AddCafe(cafe4);
 
-            Console.WriteLine("Thanks for using our program \n");
+            Console.WriteLine("Thanks for using our program! \n");
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("What do you want to know? \n");
             System.Threading.Thread.Sleep(1000);
-            Console.WriteLine("You can find:");
-            Console.WriteLine("1. Cafes by name, 2. Cafes by address");
-            Console.WriteLine("3. Now open cafes, 4. Cafes which have wifi");
-            Console.WriteLine("5. All cafes on map");
+            Console.WriteLine("You can find: \n1. Cafes by name, 2. Cafes by address \n3. Now open cafes, 4. Cafes that have wifi\n5. All cafes on map \n");
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Select what you want by its number.");
+
+            string numberOfFunction = Console.ReadLine();
+            int number;
+            while (!(numberOfFunction.Length == 1 && Convert.ToChar(numberOfFunction) > '0' && Convert.ToChar(numberOfFunction) < '6'))
+            {
+                Console.WriteLine("Wrong input! Enter the number again.");
+                numberOfFunction = Console.ReadLine();
+            }
+            number = Convert.ToInt32(numberOfFunction);
+            switch (number)
+            {
+                case 1:
+                    Console.WriteLine("Enter the name of the cafe.");
+                    Cafe cafe = cafes.GetCafeByName(Console.ReadLine());
+                    if ( cafe != null)
+                        Console.WriteLine("\n" + cafe.ToString());
+                    else
+                        Console.WriteLine("\nCafe is not found!");
+                    break;
+                case 2:
+                    Console.WriteLine("Enter the address of the cafe.");
+                    cafe = cafes.GetCafeByAddress(Console.ReadLine());
+                    if ( cafe != null)
+                        Console.WriteLine("\n" + cafe.ToString());
+                    else
+                        Console.WriteLine("\nCafe is not found!");
+                    break;
+            }
         }
 
     }
