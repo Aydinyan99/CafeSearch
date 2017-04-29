@@ -73,26 +73,102 @@ namespace CafeSearch
                 numberOfFunction = Console.ReadLine();
             }
             number = Convert.ToInt32(numberOfFunction);
+            Services(number, cafes);
+        }
+        public static void Services(int number, Cafes cafes)
+        {
             switch (number)
             {
                 case 1:
                     Console.WriteLine("Enter the name of the cafe.");
                     Cafe cafe = cafes.GetCafeByName(Console.ReadLine());
-                    if ( cafe != null)
-                        Console.WriteLine("\n" + cafe.ToString());
+                    if (cafe != null)
+                    {
+                        Console.WriteLine("\n" + cafe.ToString() + "\n");
+                        System.Threading.Thread.Sleep(1000);
+                        Console.WriteLine("Do you want to go " + cafe.Name + "? (yes/no)");
+                        string answer = Console.ReadLine();
+                        if (answer == "yes")
+                        {
+                            Console.WriteLine("When do you want to go?");
+                            Console.ReadLine();
+                            Random rand = new Random();
+                            int random = rand.Next(10);
+                            if (random < 8)
+                            {
+                                Console.WriteLine("Your table is reserved.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Sorry, all tables are reserved!");
+                                Console.WriteLine("Do you want to choose another cafe? (yes/no)");
+                                answer = Console.ReadLine();
+                                while (answer != "yes" && answer != "no")
+                                {
+                                    Console.WriteLine("Wrong input! Enter the word again.");
+                                    answer = Console.ReadLine();
+                                }
+                                if (answer == "yes")
+                                {
+                                    ChooseAnotherCafe(cafes);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Good bye!");
+                                    System.Threading.Thread.Sleep(1000);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Do you want to choose another cafe? (yes/no)");
+                            answer = Console.ReadLine();
+                            while (answer != "yes" && answer != "no")
+                            {
+                                Console.WriteLine("Wrong input! Enter the word again.");
+                                answer = Console.ReadLine();
+                            }
+                            if (answer == "yes")
+                            {
+                                ChooseAnotherCafe(cafes);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Good bye!");
+                                System.Threading.Thread.Sleep(1000);
+                            }
+                        }
+                    }
                     else
+                    {
                         Console.WriteLine("\nCafe is not found!");
+                    }
                     break;
                 case 2:
                     Console.WriteLine("Enter the address of the cafe.");
                     cafe = cafes.GetCafeByAddress(Console.ReadLine());
-                    if ( cafe != null)
+                    if (cafe != null)
                         Console.WriteLine("\n" + cafe.ToString());
                     else
                         Console.WriteLine("\nCafe is not found!");
                     break;
             }
         }
+        public static void ChooseAnotherCafe(Cafes cafes)
+        {
+            Console.WriteLine("\n You can find: \n1. Cafes by name, 2. Cafes by address \n3. Now open cafes, 4. Cafes that have wifi\n5. All cafes on map \n");
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Select what you want by its number.");
 
-    }
+            string numberOfFunction = Console.ReadLine();
+            int number;
+            while (!(numberOfFunction.Length == 1 && Convert.ToChar(numberOfFunction) > '0' && Convert.ToChar(numberOfFunction) < '6'))
+            {
+                Console.WriteLine("Wrong input! Enter the number again.");
+                numberOfFunction = Console.ReadLine();
+            }
+            number = Convert.ToInt32(numberOfFunction);
+            Services(number, cafes);
+        }
+        }
 }
