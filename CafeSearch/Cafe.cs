@@ -15,6 +15,7 @@ namespace CafeSearch
         public float Rating { set; get; }
         public string OfficialWebsite { set; get; }
         public bool WifiAvailability { set; get; }
+        public string Reviews { set; get; }
 
         public override string ToString()
         {
@@ -23,7 +24,7 @@ namespace CafeSearch
                 wifi = "Available";
             else
                 wifi = "Unavailable";
-            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Working Hours: " + OpenHour + ":00-" + CloseHour + ":00" + "\n" + "Rating:" + new string('*', (int)(Rating)) + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi;
+            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Working Hours: " + OpenHour + ":00-" + CloseHour + ":00" + "\n" + "Rating:" + new string('*', (int)(Rating)) + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi +"\n" + "Reviews" +"\n"+ Reviews;
         }
 
     }

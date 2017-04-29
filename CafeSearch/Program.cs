@@ -39,7 +39,8 @@ namespace CafeSearch
                 CloseHour = 24,
                 Rating = 4.3f,
                 OfficialWebsite = "http://jose.am",
-                WifiAvailability = true
+                WifiAvailability = true,
+                Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive. "
             };
             Cafe cafe4 = new Cafe()
             {
