@@ -8,20 +8,42 @@ namespace CafeSearch
 {
     class Cafes
     {
-    
+
         public List<Cafe> cafes = new List<Cafe>();
         public void AddCafe(Cafe cafe)
         {
             cafes.Add(cafe);
-        } 
+        }
         public Cafe GetCafeByName(string name)
         {
-            foreach(Cafe var in cafes)
+            foreach (Cafe var in cafes)
             {
                 if (var.Name == name)
                     return var;
             }
             return null;
+        }
+        public void GetCafesByDecliningRating()
+        {
+            List<Cafe> cafeRating = cafes;
+            float rating = 5;
+            for (int i = 0; i < cafes.Count; i++)
+            {
+                for (int j = 0; j < cafes.Count - i - 1; j++)
+                {
+                    if (cafeRating[j].Rating < cafeRating[j + 1].Rating)
+                    {
+                        Cafe c;
+                        c = cafeRating[j];
+                        cafeRating[j] = cafeRating[j + 1];
+                        cafeRating[j + 1] = c;
+                    }
+                }
+            }
+            foreach (Cafe var in cafeRating)
+            {
+                Console.WriteLine(var.ToString());
+            }
         }
         public Cafe GetCafeByAddress(string adress)
         {
@@ -36,6 +58,6 @@ namespace CafeSearch
         {
             return new List<Cafe>();
         }
-       
+
     }
 }
