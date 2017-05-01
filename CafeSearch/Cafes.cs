@@ -8,12 +8,25 @@ namespace CafeSearch
 {
     class Cafes
     {
+    
+        public static List<Cafe> cafes = new List<Cafe>();
+        public static int theNumberOfCafes = cafes.Count;
 
-        public List<Cafe> cafes = new List<Cafe>();
+        public  string cafesOpenNow()
+        {
+            string cafesOpenNow="";
+            foreach (Cafe cafe in cafes)
+            {
+                if (DateTime.Now.TimeOfDay >= cafe.OpenHour && DateTime.Now.TimeOfDay <= cafe.CloseHour)
+                    cafesOpenNow = cafesOpenNow + (cafe);
+            }
+            return cafesOpenNow;
+        }
+
         public void AddCafe(Cafe cafe)
         {
             cafes.Add(cafe);
-        }
+        } 
         public Cafe GetCafeByName(string name)
         {
             foreach (Cafe var in cafes)
@@ -58,6 +71,6 @@ namespace CafeSearch
         {
             return new List<Cafe>();
         }
-
+       
     }
 }

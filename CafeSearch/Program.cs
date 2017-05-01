@@ -15,18 +15,19 @@ namespace CafeSearch
             {
                 Name = "Tumanyan Shaurma",
                 Address = "Tumanyan Street",
-                OpenHour = 10,
-                CloseHour = 24,
-                Rating = 4,
+                OpenHour = new TimeSpan(09, 00, 00),
+                CloseHour = new TimeSpan(20, 00, 00),
+                Rating = 4f,
                 OfficialWebsite = "http://tshaurma.com",
                 WifiAvailability = true
             };
+           
             Cafe cafe2 = new Cafe()
             {
                 Name = "Loft",
                 Address = "Moskovyan Street",
-                OpenHour = 0,
-                CloseHour = 24,
+                OpenHour = new TimeSpan(09, 00, 00),
+                CloseHour = new TimeSpan(05, 00, 00),
                 Rating = 4.7f,
                 OfficialWebsite = "http://loft.am",
                 WifiAvailability = true
@@ -35,19 +36,19 @@ namespace CafeSearch
             {
                 Name = "Jose",
                 Address = "Khanjyan Street",
-                OpenHour = 11,
-                CloseHour = 24,
+                OpenHour = new TimeSpan(11, 00, 00),
+                CloseHour = new TimeSpan(24, 00, 00),
                 Rating = 4.3f,
                 OfficialWebsite = "http://jose.am",
                 WifiAvailability = true,
-                Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive. "
+                Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive. +\n"
             };
             Cafe cafe4 = new Cafe()
             {
                 Name = "Tashir",
                 Address = "Teryan Street",
-                OpenHour = 11,
-                CloseHour = 24,
+                OpenHour = new TimeSpan(10, 00, 00),
+                CloseHour = new TimeSpan(23, 00, 00),
                 Rating = 4.4f,
                 OfficialWebsite = "http://tashirpizza.am",
                 WifiAvailability = true
@@ -61,13 +62,14 @@ namespace CafeSearch
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("What do you want to know? \n");
             ChooseAnotherCafe(cafes);
-            
+
+
         }
         public static void CafeReserve(int number, Cafes cafes, Cafe cafe)
         {
-                    if (cafe != null)
-                    {
-                        Console.WriteLine("\n" + cafe.ToString() + "\n");
+            if (cafe != null)
+            {
+                Console.WriteLine("\n" + cafe.ToString() + "\n");
                         System.Threading.Thread.Sleep(1000);
                         Console.WriteLine("Do you want to go " + cafe.Name + "? (yes/no)");
                         string answer = Console.ReadLine();
