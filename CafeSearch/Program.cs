@@ -73,7 +73,7 @@ namespace CafeSearch
         }
         public static void CafesWithWifi(Cafes cafes)
         {
-            Console.WriteLine(cafes.CafesWithWifi());
+            cafes.CafesWithWifi();
             Console.WriteLine("Which of them do you choose?");
             string cafe = Console.ReadLine();
             while (cafes.GetCafeByName(cafe) == null)
@@ -85,7 +85,7 @@ namespace CafeSearch
         }
         public static void NowOpenCafes(Cafes cafes)
         {
-            Console.WriteLine(cafes.CafesOpenNow());
+            cafes.CafesOpenNow();
             Console.WriteLine("Which of them do you choose?");
             string cafe = Console.ReadLine();
             while (cafes.GetCafeByName(cafe) == null)
@@ -97,7 +97,7 @@ namespace CafeSearch
         }
         public static void AllCafes(Cafes cafes)
         {
-            Console.WriteLine(cafes.AllCafes());
+            cafes.AllCafes();
             Console.WriteLine("Which of them do you choose?");
             string cafe = Console.ReadLine();
             while (cafes.GetCafeByName(cafe) == null)
