@@ -13,18 +13,15 @@ namespace CafeSearch
             Cafes cafes = new Cafes();
 
             Console.WriteLine("Welcome! \n");
-            //System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(1000);
             Console.WriteLine("What do you want to know? \n");
-            //ChooseAnotherCafe(cafes);
-
             InputNumbers(cafes);
-
         }
         public static void InputNumbers(Cafes cafes)
         {
-            //System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(1000);
             Console.WriteLine("You can find: \n1. Cafes by name, 2. Cafes by address \n3. Now open cafes, 4. Cafes that have wifi\n5. All cafes on map \n");
-            //System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(1000);
             Console.WriteLine("Select what you want by its number.");
             string numberOfFunction = Console.ReadLine();
             while (!(numberOfFunction.Length == 1 && Convert.ToChar(numberOfFunction) > '0' && Convert.ToChar(numberOfFunction) < '6'))
@@ -38,12 +35,16 @@ namespace CafeSearch
                     CafesByName(cafes);
                     break;
                 case "2":
+                    CafesByAddress(cafes);
                     break;
                 case "3":
+                    NowOpenCafes(cafes);
                     break;
                 case "4":
+                    CafesWithWifi(cafes);
                     break;
                 case "5":
+                    AllCafes(cafes);
                     break;
             }
 
@@ -59,31 +60,64 @@ namespace CafeSearch
             }
             CafeReserve(cafes, cafe);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public static void CafesByAddress(Cafes cafes)
+        {
+            Console.WriteLine("Enter the address of the cafe.");
+            Cafe cafe = cafes.GetCafeByAddress(Console.ReadLine());
+            while (cafe == null)
+            {
+                Console.WriteLine("Cafe is not found!");
+                cafe = cafes.GetCafeByName(Console.ReadLine());
+            }
+            CafeReserve(cafes, cafe);
+        }
+        public static void CafesWithWifi(Cafes cafes)
+        {
+            Console.WriteLine(cafes.CafesWithWifi());
+            Console.WriteLine("Which of them do you choose?");
+            string cafe = Console.ReadLine();
+            while (cafes.GetCafeByName(cafe) == null)
+            {
+                Console.WriteLine("Cafe is not found!");
+                cafe = Console.ReadLine();
+            }
+            CafeReserve(cafes,cafes.GetCafeByName(cafe));
+        }
+        public static void NowOpenCafes(Cafes cafes)
+        {
+            Console.WriteLine(cafes.CafesOpenNow());
+            Console.WriteLine("Which of them do you choose?");
+            string cafe = Console.ReadLine();
+            while (cafes.GetCafeByName(cafe) == null)
+            {
+                Console.WriteLine("Cafe is not found!");
+                cafe = Console.ReadLine();
+            }
+            CafeReserve(cafes, cafes.GetCafeByName(cafe));
+        }
+        public static void AllCafes(Cafes cafes)
+        {
+            Console.WriteLine(cafes.AllCafes());
+            Console.WriteLine("Which of them do you choose?");
+            string cafe = Console.ReadLine();
+            while (cafes.GetCafeByName(cafe) == null)
+            {
+                Console.WriteLine("Cafe is not found!");
+                cafe = Console.ReadLine();
+            }
+            CafeReserve(cafes, cafes.GetCafeByName(cafe));
+        }
         public static void CafeReserve(Cafes cafes, Cafe cafe)
         {
             Console.WriteLine("\n" + cafe.ToString() + "\n");
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("Do you want to go " + cafe.Name + "? (yes/no)");
             string answer = Console.ReadLine();
+            while (answer != "yes" && answer != "no")
+            {
+                Console.WriteLine("Wrong input! Enter the word again.");
+                answer = Console.ReadLine();
+            }
             if (answer == "yes")
             {
                 Console.WriteLine("When do you want to go?");
