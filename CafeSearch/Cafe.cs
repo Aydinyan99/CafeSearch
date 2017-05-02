@@ -10,6 +10,7 @@ namespace CafeSearch
     {
         public string Name { set; get; }
         public string Address { set; get; }
+        public string Telephone { set; get; }
         public TimeSpan OpenHour;
         public TimeSpan CloseHour;
         public float Rating { set; get; }
@@ -29,7 +30,7 @@ namespace CafeSearch
                 wifi = "Available";
             else
                 wifi = "Unavailable";
-            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Working Hours: " + OpenHour  + '-' + CloseHour  + "\n" + "Rating:" + new string('*', (int)(Rating)) + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi +"\n" + "Reviews:" +"\n"+ Reviews+"\n";
+            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Telephone: " + Telephone + "\n" + "Working Hours: " + OpenHour + " - " + CloseHour + "\n" + "Rating: " + new string('*', (int)(Rating)) + "  " + "( " + Rating + " )" + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi + "\n" + "Reviews: " + Reviews;
         }
 
     }

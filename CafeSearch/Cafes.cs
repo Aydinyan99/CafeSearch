@@ -17,35 +17,46 @@ namespace CafeSearch
             cafes.Add(cafe2);
             cafes.Add(cafe3);
             cafes.Add(cafe4);
+            cafes.Add(cafe5);
         }
-        public string AllCafes()
+        public void AllCafes()
         {
-            string AllCafes = "";
+            List<Cafe> AllCafes = new List<Cafe>();
             foreach (Cafe cafe in cafes)
             {
-                AllCafes += cafe;
+                AllCafes.Add(cafe);
             }
-            return AllCafes;
+            foreach (Cafe var in AllCafes)
+            {
+                Console.WriteLine(var + "\n");
+            }
         }
-        public string CafesOpenNow()
+        public void CafesOpenNow()
         {
-            string cafesOpenNow = "";
+            List<Cafe> cafesOpenNow = new List<Cafe>();
             foreach (Cafe cafe in cafes)
             {
                 if (DateTime.Now.TimeOfDay >= cafe.OpenHour && DateTime.Now.TimeOfDay <= cafe.CloseHour)
-                    cafesOpenNow += cafe;
+                    cafesOpenNow.Add(cafe);
             }
-            return cafesOpenNow;
+            foreach (Cafe var in cafesOpenNow)
+            {
+                Console.WriteLine(var + "\n");
+            }
+
         }
-        public string CafesWithWifi()
+        public void CafesWithWifi()
         {
-            string cafesWithWifi = "";
+            List<Cafe> cafesWithWifi = new List<Cafe>();
             foreach (Cafe cafe in cafes)
             {
                 if (cafe.WifiAvailability)
-                    cafesWithWifi += cafe;
+                    cafesWithWifi.Add(cafe);
             }
-            return cafesWithWifi;
+            foreach (Cafe var in cafesWithWifi)
+            {
+                Console.WriteLine(var + "\n");
+            }
         }
         public void AddCafe(Cafe cafe)
         {
@@ -78,7 +89,7 @@ namespace CafeSearch
             }
             foreach (Cafe var in cafeRating)
             {
-                Console.WriteLine(var.ToString());
+                Console.WriteLine(var + "\n");
             }
         }
         public Cafe GetCafeByAddress(string adress)
@@ -96,44 +107,59 @@ namespace CafeSearch
         }
         Cafe cafe1 = new Cafe()
         {
-            Name = "Tumanyan Shaurma",
-            Address = "Tumanyan Street",
-            OpenHour = new TimeSpan(09, 00, 00),
-            CloseHour = new TimeSpan(20, 00, 00),
-            Rating = 4f,
-            OfficialWebsite = "http://tshaurma.com",
+            Name = "Cafe Champagne",
+            Address = "27 Mesrop Mashtots Ave",
+            Telephone = "+374 43 011118",
+            OpenHour = new TimeSpan(11, 00, 00),
+            CloseHour = new TimeSpan(23, 30, 00),
+            Rating = 5f,
+            OfficialWebsite = "http://cafechampagne.am",
             WifiAvailability = true
         };
 
         Cafe cafe2 = new Cafe()
         {
-            Name = "Loft",
-            Address = "Moskovyan Street",
-            OpenHour = new TimeSpan(09, 00, 00),
-            CloseHour = new TimeSpan(11, 00, 00),
-            Rating = 4.7f,
-            OfficialWebsite = "http://loft.am",
+            Name = "Jazzve",
+            Address = "Tumanyan Street",
+            Telephone = "+374 10 533633",
+            OpenHour = new TimeSpan(10, 00, 00),
+            CloseHour = new TimeSpan(23, 00, 00),
+            Rating = 3.9f,
+            OfficialWebsite = "http://jazzve.am",
             WifiAvailability = true
         };
         Cafe cafe3 = new Cafe()
         {
             Name = "Jose",
             Address = "Khanjyan Street",
-            OpenHour = new TimeSpan(11, 00, 00),
-            CloseHour = new TimeSpan(23, 59, 00),
-            Rating = 4.3f,
+            Telephone = "+374 91 540020",
+            OpenHour = new TimeSpan(22, 00, 00),
+            CloseHour = new TimeSpan(23, 45, 00),
+            Rating = 4.4f,
             OfficialWebsite = "http://jose.am",
             WifiAvailability = true,
-            Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive.\n"
+            Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive."
         };
         Cafe cafe4 = new Cafe()
         {
-            Name = "Tashir",
+            Name = "Segafredo",
             Address = "Teryan Street",
-            OpenHour = new TimeSpan(10, 00, 00),
-            CloseHour = new TimeSpan(23, 00, 00),
+            Telephone = "+374 60 521190",
+            OpenHour = new TimeSpan(8, 30, 00),
+            CloseHour = new TimeSpan(23, 45, 00),
             Rating = 4.4f,
-            OfficialWebsite = "http://tashirpizza.am",
+            OfficialWebsite = "http://segafredo.it",
+            WifiAvailability = true
+        };
+        Cafe cafe5 = new Cafe()
+        {
+            Name = "Malocco",
+            Address = "Tamanyan Street",
+            Telephone = "+374 96 531327",
+            OpenHour = new TimeSpan(8, 30, 00),
+            CloseHour = new TimeSpan(23, 45, 00),
+            Rating = 4.4f,
+            OfficialWebsite = "http://malocco.com",
             WifiAvailability = true
         };
     }
