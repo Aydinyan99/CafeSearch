@@ -12,13 +12,30 @@ namespace CafeSearch
 
         public static List<Cafe> cafes = new List<Cafe>();
         public static int theNumberOfCafes = cafes.Count;
+        private string[] input = System.IO.File.ReadAllLines(@"D:\Codes\CafeSearch\cafe.txt");
+        public static List<string> lines = new List<string>();
         public Cafes()
         {
-            cafes.Add(cafe1);
-            cafes.Add(cafe2);
-            cafes.Add(cafe3);
-            cafes.Add(cafe4);
-            cafes.Add(cafe5);
+            for (int i = 0; i < input.Length; i++)
+                lines.Add(input[i]);
+                for (int i = 0; i < input.Length / 10; i++)
+            {
+                string[] open = input[(10*i) + 3].Split(',');
+                string[] close = input[(10 * i) + 4].Split(',');
+                cafes.Add(new Cafe()
+                {
+                    Name = lines[(10 * i)],
+                    Address = lines[(10 * i) + 1],
+                    Telephone = lines[(10 * i) + 2],
+                    OpenHour = new TimeSpan(Convert.ToInt32(open[0]), Convert.ToInt32(open[1]), Convert.ToInt32(open[2])),
+                    CloseHour = new TimeSpan(Convert.ToInt32(close[0]), Convert.ToInt32(close[1]), Convert.ToInt32(close[2])),
+                    Rating = (float)Convert.ToDouble(lines[(10 * i) + 5]),
+                    OfficialWebsite = lines[(10 * i) + 6],
+                    WifiAvailability = Convert.ToBoolean(lines[(10 * i) + 7]),
+                    Latitude = Convert.ToDouble(lines[(10 * i) + 8]),
+                    Longitude = Convert.ToDouble(lines[(10 * i) + 9])
+                });
+            }
             GeoCoordinate ourCordinate = new GeoCoordinate(40.184806, 44.527166);
             GeoCoordinate cafeCordinate;
             for (int i = 0; i < cafes.Count; i++)
@@ -26,6 +43,10 @@ namespace CafeSearch
                 cafeCordinate = new GeoCoordinate(cafes[i].Latitude, cafes[i].Longitude);
                 cafes[i].Distance = (int)ourCordinate.GetDistanceTo(cafeCordinate);
             }
+        }
+        public void AddCafe(Cafe cafe)
+        {
+            cafes.Add(cafe);
         }
         public void AllCafes()
         {
@@ -65,10 +86,6 @@ namespace CafeSearch
             {
                 Console.WriteLine(var + "\n");
             }
-        }
-        public void AddCafe(Cafe cafe)
-        {
-            cafes.Add(cafe);
         }
         public Cafe GetCafeByName(string name)
         {
@@ -131,77 +148,9 @@ namespace CafeSearch
             }
             foreach (Cafe var in nearCafes)
             {
-                Console.WriteLine(var.Name + ": " + var.Distance +"m");
+                Console.WriteLine(var.Name + ": " + var.Distance + "m");
             }
             Console.WriteLine();
         }
-        Cafe cafe1 = new Cafe()
-        {
-            Name = "Champagne",
-            Address = "27 Mesrop Mashtots Ave",
-            Telephone = "+374 43 011118",
-            OpenHour = new TimeSpan(11, 00, 00),
-            CloseHour = new TimeSpan(23, 30, 00),
-            Rating = 5f,
-            OfficialWebsite = "http://cafechampagne.am",
-            WifiAvailability = true,
-            Latitude = 40.184108,
-            Longitude = 44.511812
-        };
-
-        Cafe cafe2 = new Cafe()
-        {
-            Name = "Jazzve",
-            Address = "Tumanyan Street",
-            Telephone = "+374 10 533633",
-            OpenHour = new TimeSpan(10, 00, 00),
-            CloseHour = new TimeSpan(23, 00, 00),
-            Rating = 3.9f,
-            OfficialWebsite = "http://jazzve.am",
-            WifiAvailability = true,
-            Latitude = 40.185410,
-            Longitude = 44.514275
-        };
-        Cafe cafe3 = new Cafe()
-        {
-            Name = "Jose",
-            Address = "Khanjyan Street",
-            Telephone = "+374 91 540020",
-            OpenHour = new TimeSpan(22, 00, 00),
-            CloseHour = new TimeSpan(23, 45, 00),
-            Rating = 4.4f,
-            OfficialWebsite = "http://jose.am",
-            WifiAvailability = true,
-            Reviews = "Davit Mkoyan: Nice club-restaurant  to arrange birthdays and other events. Has live music. Is expensive.",
-            Latitude = 40.175768,
-            Longitude = 44.521648
-        };
-        Cafe cafe4 = new Cafe()
-        {
-            Name = "Segafredo",
-            Address = "Abovyan Street",
-            Telephone = "+374 60 521190",
-            OpenHour = new TimeSpan(8, 30, 00),
-            CloseHour = new TimeSpan(23, 45, 00),
-            Rating = 4.4f,
-            OfficialWebsite = "http://segafredo.it",
-            WifiAvailability = true,
-            Latitude = 40.185765,
-            Longitude = 44.521437
-        };
-        Cafe cafe5 = new Cafe()
-        {
-            Name = "Malocco ",
-            Address = "Tamanyan Street",
-            Telephone = "+374 96 531327",
-            OpenHour = new TimeSpan(8, 30, 00),
-            CloseHour = new TimeSpan(23, 45, 00),
-            Rating = 4.4f,
-            OfficialWebsite = "http://malocco.com",
-            WifiAvailability = true,
-            Latitude = 40.189145,
-            Longitude = 44.514971
-        };
-        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\WriteLines2.txt");
     }
 }

@@ -13,7 +13,7 @@ namespace CafeSearch
         public string Telephone { set; get; }
         public TimeSpan OpenHour;
         public TimeSpan CloseHour;
-        public float Rating { set; get; }
+        public double Rating { set; get; }
         public string OfficialWebsite { set; get; }
         public bool WifiAvailability { set; get; }
         public string Reviews { set; get; }
