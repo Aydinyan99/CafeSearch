@@ -36,6 +36,26 @@ namespace CafeSearch
                 Console.WriteLine("Username:");
                 username = Console.ReadLine();
             }
+            Console.WriteLine("\nPassword:");
+            username = Console.ReadLine();
+            while (username != "rafi1999")
+            {
+                Console.WriteLine("\nWrong password!");
+                Console.WriteLine("Wait 15 seconds for next try.");
+                System.Threading.Thread.Sleep(2500);
+                for (int i = 15; i > 0; i--)
+                {
+                    Console.WriteLine("Password:");
+
+                    Console.WriteLine(i);
+                    for (int j = 0; j < 22; j++)
+                        Console.WriteLine();
+                    System.Threading.Thread.Sleep(600);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Password:");
+                username = Console.ReadLine();
+            }
             Console.WriteLine("\nWhat do you want to know? \n");
 
             InputNumbers(cafes);
