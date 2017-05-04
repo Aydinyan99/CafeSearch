@@ -12,7 +12,7 @@ namespace CafeSearch
 
         public static List<Cafe> cafes = new List<Cafe>();
         public static int theNumberOfCafes = cafes.Count;
-        private string[] input = System.IO.File.ReadAllLines(@"D:\Codes\CafeSearch\cafe.txt");
+        private string[] input = System.IO.File.ReadAllLines("cafe.txt");
         public static List<string> lines = new List<string>();
         public Cafes()
         {
