@@ -202,5 +202,6 @@ namespace CafeSearch
             Latitude = 40.189145,
             Longitude = 44.514971
         };
+        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Public\TestFolder\WriteLines2.txt");
     }
 }
