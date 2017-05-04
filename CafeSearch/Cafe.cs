@@ -17,6 +17,9 @@ namespace CafeSearch
         public string OfficialWebsite { set; get; }
         public bool WifiAvailability { set; get; }
         public string Reviews { set; get; }
+        public double Latitude { set; get; }
+        public double Longitude { set; get; }
+        public int Distance { set; get; }
         public static int count { set; get; }
         public Cafe()
         {
@@ -30,7 +33,7 @@ namespace CafeSearch
                 wifi = "Available";
             else
                 wifi = "Unavailable";
-            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" + "Telephone: " + Telephone + "\n" + "Working Hours: " + OpenHour + " - " + CloseHour + "\n" + "Rating: " + new string('*', (int)(Rating)) + "  " + "( " + Rating + " )" + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi + "\n" + "Reviews: " + Reviews;
+            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" +"Distance: " +Distance+"m\n"+ "Telephone: " + Telephone + "\n" + "Working Hours: " + OpenHour + " - " + CloseHour + "\n" + "Rating: " + new string('*', (int)(Rating)) + "  " + "( " + Rating + " )" + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi + "\n" + "Reviews: " + Reviews;
         }
 
     }

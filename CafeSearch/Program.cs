@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Device;
 
 namespace CafeSearch
 {
@@ -15,16 +16,19 @@ namespace CafeSearch
             Console.WriteLine("Welcome! \n");
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("What do you want to know? \n");
+
             InputNumbers(cafes);
+            
         }
         public static void InputNumbers(Cafes cafes)
         {
             System.Threading.Thread.Sleep(1000);
-            Console.WriteLine("You can find: \n1. Cafes by name, 2. Cafes by address \n3. Now open cafes, 4. Cafes that have wifi\n5. All cafes on map \n");
+            Console.WriteLine("You can find: \n1. Cafes by name\n2. Cafes by address \n3. Now open cafes\n4. Cafes that have wifi\n5. Nearest cafes\n6. All cafes on map \n");
             System.Threading.Thread.Sleep(1000);
-            Console.WriteLine("Select what you want by its number.");
+            Console.WriteLine("Select what you want by its number.\n");
             string numberOfFunction = Console.ReadLine();
-            while (!(numberOfFunction.Length == 1 && Convert.ToChar(numberOfFunction) > '0' && Convert.ToChar(numberOfFunction) < '6'))
+            Console.WriteLine();
+            while (!(numberOfFunction.Length == 1 && Convert.ToChar(numberOfFunction) > '0' && Convert.ToChar(numberOfFunction) < '7'))
             {
                 Console.WriteLine("Wrong input! Enter the number again.");
                 numberOfFunction = Console.ReadLine();
@@ -44,6 +48,9 @@ namespace CafeSearch
                     CafesWithWifi(cafes);
                     break;
                 case "5":
+                    NearestCafes(cafes);
+                    break;
+                case "6":
                     AllCafes(cafes);
                     break;
             }
@@ -51,7 +58,7 @@ namespace CafeSearch
         }
         public static void CafesByName(Cafes cafes)
         {
-            Console.WriteLine("Enter the name of the cafe.");
+            Console.WriteLine("Enter the name of the cafe.\n");
             Cafe cafe = cafes.GetCafeByName(Console.ReadLine());
             while (cafe == null)
             {
@@ -95,6 +102,18 @@ namespace CafeSearch
             }
             CafeReserve(cafes, cafes.GetCafeByName(cafe));
         }
+        public static void NearestCafes(Cafes cafes)
+        {
+            cafes.NearestCafes();
+            Console.WriteLine("Which of them do you choose?");
+            string cafe = Console.ReadLine();
+            while (cafes.GetCafeByName(cafe) == null)
+            {
+                Console.WriteLine("Cafe is not found!");
+                cafe = Console.ReadLine();
+            }
+            CafeReserve(cafes, cafes.GetCafeByName(cafe));
+        }
         public static void AllCafes(Cafes cafes)
         {
             cafes.AllCafes();
@@ -109,10 +128,11 @@ namespace CafeSearch
         }
         public static void CafeReserve(Cafes cafes, Cafe cafe)
         {
-            Console.WriteLine("\n" + cafe.ToString() + "\n");
+            Console.WriteLine("\nName: " + cafe.Name + "\n" + "Adress: " + cafe.Address + "\n" +"Distance: " +cafe.Distance+"m\n" + "\n");
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("Do you want to go " + cafe.Name + "? (yes/no)");
             string answer = Console.ReadLine();
+            Console.WriteLine();
             while (answer != "yes" && answer != "no")
             {
                 Console.WriteLine("Wrong input! Enter the word again.");
@@ -133,6 +153,7 @@ namespace CafeSearch
                     Console.WriteLine("Sorry, all tables are reserved!");
                     Console.WriteLine("Do you want to choose another cafe? (yes/no)");
                     answer = Console.ReadLine();
+                    Console.WriteLine();
                     while (answer != "yes" && answer != "no")
                     {
                         Console.WriteLine("Wrong input! Enter the word again.");
@@ -153,6 +174,7 @@ namespace CafeSearch
             {
                 Console.WriteLine("Do you want to choose another cafe? (yes/no)");
                 answer = Console.ReadLine();
+                Console.WriteLine();
                 while (answer != "yes" && answer != "no")
                 {
                     Console.WriteLine("Wrong input! Enter the word again.");
