@@ -191,7 +191,7 @@ namespace CafeSearch
         };
         Cafe cafe5 = new Cafe()
         {
-            Name = "Malocco",
+            Name = "Malocco ",
             Address = "Tamanyan Street",
             Telephone = "+374 96 531327",
             OpenHour = new TimeSpan(8, 30, 00),
