@@ -21,6 +21,7 @@ namespace CafeSearch
         public double Longitude { set; get; }
         public int Distance { set; get; }
         public static int count { set; get; }
+        public int NearPoint { set; get; }
         public Cafe()
         {
             count++;
@@ -33,8 +34,7 @@ namespace CafeSearch
                 wifi = "Available";
             else
                 wifi = "Unavailable";
-            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" +"Distance: " +Distance+"m\n"+ "Telephone: " + Telephone + "\n" + "Working Hours: " + OpenHour + " - " + CloseHour + "\n" + "Rating: " + new string('*', (int)(Rating)) + "  " + "( " + Rating + " )" + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi + "\n" + "Reviews: " + Reviews;
+            return "Name: " + Name + "\n" + "Adress: " + Address + "\n" +"Distance: " +Distance+"m\n"+ "Telephone: " + Telephone + "\n" + "Working Hours: " + OpenHour + " - " + CloseHour + "\n" + "Rating: " + new string('*', (int)(Rating)) + "  " + "( " + Rating + " )" + "\n" + "OfficialWebsite: " + OfficialWebsite + "\n" + "Wifi: " + wifi + "\n" + "Reviews: \n" + Reviews;
         }
-
     }
 }
