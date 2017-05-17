@@ -340,7 +340,7 @@ namespace CafeSearch
             Console.WriteLine("Longitude:");
             Cafes.linesCafes.Add(Console.ReadLine());
             Cafes.linesCafes.Add(".");
-            StreamWriter file = new StreamWriter("cafe.txt");
+            StreamWriter file = new StreamWriter(@"..\\..\\cafe.txt");
             foreach (string var in Cafes.linesCafes)
             {
                 file.WriteLine(var);

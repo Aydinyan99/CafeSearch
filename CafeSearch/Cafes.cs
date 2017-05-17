@@ -13,9 +13,9 @@ namespace CafeSearch
         public static List<Cafe> cafes = new List<Cafe>();
         public static List<User> users = new List<User>();
         public static int theNumberOfCafes = cafes.Count;
-        private static string[] inputCafes = System.IO.File.ReadAllLines("cafe.txt");
+        private static string[] inputCafes = System.IO.File.ReadAllLines(@"..\\..\\cafe.txt");
         public static List<string> linesCafes = new List<string>();
-        private static string[] inputUsers = System.IO.File.ReadAllLines("users.txt");
+        private static string[] inputUsers = System.IO.File.ReadAllLines(@"..\\..\\users.txt");
         public static List<string> linesUsers = new List<string>();
         public Cafes()
         {

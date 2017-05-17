@@ -1,0 +1,198 @@
+Champagne
+27 Mesrop Mashtots Ave
++374 43 011118
+11,0,0
+23,30,0
+5
+http://cafechampagne.am
+true
+40,184108
+44,511812
+.
+Jazzve
+Tumanyan Street
++374 10 533633
+10,0,0
+23,0,0
+3,9
+http://jazzve.am
+true
+40,185410
+44,514275
+Cronus Gvorgyan: Very nice place. Khachatur Hovhannisyan: Expensive but good service is covering all that.
+Jose
+Khanjyan Street
++374 91 540020
+22,0,0
+23,45,0
+4,4
+http://jose.am
+true
+40,175768
+44,521648
+.
+Segafredo
+Abovyan Street
++374 60 521190
+8,30,0
+23,45,0
+4,4
+http://segafredo.it
+true
+40,185765
+44,521437
+.
+Malocco
+Tamanyan Street
++374 96 531327
+8,30,0
+23,45,0
+4,4
+http://malocco.com
+true
+40,189145
+44,514971
+.
+Artbridge
+Abovyan Street
++374 10 521239
+8,30,0
+11,30,0
+4,6
+http://artbridge.am
+false
+40,183108
+44,517835
+.
+YerevanResto
+Yeqmalyan Street
++374 60 442550
+9,0,0
+18,0,0
+4,3
+http://yerevanresto.am
+true
+40,184911
+44,508222
+.
+Black Angus
+Abovyan Street
++374 60 508070
+10,0,0
+23,0,0
+4,5
+-
+false
+40,181265
+44,514795
+.
+Bravo
+Qochar Street
++374 10 270610
+12,0,0
+11,30,0
+4,8
+http;//yerevanresto.am
+true
+40,201786
+44,498831
+.
+El Garden
+Tsitsernakaberd Hwy
++374 43 490001
+10,0,0
+23,0,0
+4,2
+-
+false
+40,188018
+44,481321
+. 
+Coffeshop
+Amiryan Street
++374 11 263333
+8,30,0
+11,30,0
+4,4
+http://coffeeshopcompany.com
+true
+40,180412
+44,510675
+.
+Impresso
+Vardananc Street
++374 60 750750
+8,0,0
+11,30,0
+4,6
+-
+false
+40,178969
+44,517885
+.
+KFC
+Mesrop Mashtoc Avenue
++374 10 539945
+10,0,0
+23,0,0
+4,3
+http://kfc-armenia.com
+true
+40,184768
+44,512406
+.
+In Vino
+Martiros Saryan Street
++374 10 521931
+11,0,0
+23,45,0
+4,7
+-
+false
+40,187034
+44,508903
+
+Retro
+Mesrop Mashtoc Avenue
++374 10 538635
+10,0,0
+23,30,0
+4,5
+-
+false
+40,186477
+44,513592
+.
+Sushi Toria
+Sayat Nova Avenue
++374 60 480048
+11,0,0
+23,45,0
+4,0
+http://toria.am
+true
+40,186153
+44,516499
+.
+Central
+Abovyan Street
++374 10 583990
+10,0,0
+23,0,0
+4,4
+http://cafecentral.am
+true
+40,185816
+44,520461
+Marianna Nikoghosyan: Good location, terrace and good food.
+Bureaucrat
+Martiros Saryan Street
++374 10 500152
+11,0,0
+23,0,0
+4,8
+http://bureaucrat.am
+true
+40,185790
+44,507760
+.
